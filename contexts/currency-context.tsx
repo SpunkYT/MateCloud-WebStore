@@ -17,7 +17,7 @@ interface CurrencyContextType {
 const exchangeRates = {
   BRL: 1,
   USD: 0.18, // 1 BRL = 0.18 USD
-  ARS: 163.64, // 1 BRL = 163.64 ARS
+  ARS: 200.48, // 1 BRL = 163.64 ARS
 }
 
 // Información de formato para cada divisa

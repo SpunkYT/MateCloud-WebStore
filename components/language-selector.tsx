@@ -1,11 +1,17 @@
 "use client"
 
-import { useLanguage } from "@/contexts/language-context"
+import { useLanguage, type Language } from "@/contexts/language-context"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
 
-const languages = [
+interface LanguageOption {
+  code: Language;
+  name: string;
+  flag: string;
+}
+
+const languages: LanguageOption[] = [
   {
     code: "es",
     name: "Español",
