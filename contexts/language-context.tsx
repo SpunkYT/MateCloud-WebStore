@@ -52,7 +52,7 @@ const translations = {
 
     // Precios
     "pricing.title": "Precios",
-    "pricing.subtitle": "Planes para cada necesidad",
+    "pricing.subtitle": "Elige tu plan con spot",
     "pricing.description": "Elige el plan que mejor se adapte a tus necesidades y presupuesto.",
     "pricing.basic.title": "Basic",
     "pricing.ultra7.title": "Ultra 7",

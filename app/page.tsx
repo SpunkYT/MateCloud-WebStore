@@ -157,7 +157,7 @@ export default function Home() {
           Elige tu plan sin spot
         </h2>
         <p className="max-w-[900px] text-mate-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Estos son ejemplos de planes sin spot. Puedes cambiar los nombres y características después.
+        Elige el plan que mejor se adapte a tus necesidades y presupuesto.
         </p>
       </div>
     </motion.div>

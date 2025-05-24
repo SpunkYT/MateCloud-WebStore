@@ -82,11 +82,11 @@ export function HeroSection() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-mate-50 p-4 rounded-lg flex flex-col items-center">
                       <Cpu className="h-8 w-8 text-mate-600 mb-2" />
-                      <span className="text-sm font-medium text-mate-900">8 Core CPU</span>
+                      <span className="text-sm font-medium text-mate-900">16 VCPUS</span>
                     </div>
                     <div className="bg-mate-50 p-4 rounded-lg flex flex-col items-center">
                       <HardDrive className="h-8 w-8 text-mate-600 mb-2" />
-                      <span className="text-sm font-medium text-mate-900">512GB SSD</span>
+                      <span className="text-sm font-medium text-mate-900">350GB SSD</span>
                     </div>
                   </div>
                 </div>
