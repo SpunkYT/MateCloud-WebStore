@@ -54,36 +54,15 @@ const translations = {
     "pricing.title": "Precios",
     "pricing.subtitle": "Planes para cada necesidad",
     "pricing.description": "Elige el plan que mejor se adapte a tus necesidades y presupuesto.",
-    "pricing.basic.title": "Basic",
-    "pricing.ultra7.title": "Ultra 7",
-    "pricing.ultra.title": "Ultra",
-    "pricing.week": "/7 días",
+    "pricing.basic.title": "Mate Pulse",
+    "pricing.professional.title": "Mate Core",
+    "pricing.enterprise.title": "Mate Nova",
+    "pricing.week": "/semana",
+    "pricing.twoWeeks": "/15 días",
     "pricing.month": "/mes",
-    "pricing.select": "Seleccionar",
-    "pricing.popular": "MÁS POPULAR",
+    "pricing.select": "Seleccionar Plan",
+    "pricing.popular": "POPULAR",
     "pricing.cpuCores": "núcleos CPU",
-    
-    // Especificaciones
-    "specs.title": "Especificaciones",
-    "specs.cpu": "INTEL XEON 16 VCPUS",
-    "specs.ram": "16GB RAM",
-    "specs.location": "SERVIDOR BRASILEIRO",
-    "specs.storage": "350GB SSD PERMANENTE",
-    "specs.gpu.gtx1060": "GPU EQUIVALENTE GTX 1060",
-    "specs.gpu.rtx2060": "GPU EQUIVALENTE RTX 2060",
-    "specs.gpu.rtx2060s": "GPU EQUIVALENTE RTX 2060 SUPER",
-    "specs.gpu.rtx2060ti": "GPU EQUIVALENTE RTX 2060 TI",
-    "specs.network": "100MBps DOWNLOAD",
-    "specs.resolution": "RESOLUCIÓN: HASTA 4K",
-    
-    // Sistema Operativo
-    "os.windows11": "Windows 11",
-    
-    // Títulos de sección
-    "sectionTitle.plans": "Planes sin Spot",
-    "sectionTitle.plansDesc": "Estos son ejemplos de planes sin spot. Puedes cambiar los nombres y características después.",
-    "sectionTitle.spotPlans": "Planes con Spot",
-    "sectionTitle.spotPlansDesc": "Planes con disponibilidad limitada. Precios especiales por tiempo limitado.",
 
     // Cómo funciona
     "how.title": "Cómo Funciona",
@@ -219,35 +198,21 @@ const translations = {
     "pricing.title": "Preços",
     "pricing.subtitle": "Planos para cada necessidade",
     "pricing.description": "Escolha o plano que melhor se adapta às suas necessidades e orçamento.",
-    "pricing.basic.title": "Basic",
-    "pricing.ultra7.title": "Ultra 7",
-    "pricing.ultra.title": "Ultra",
-    "pricing.week": "/7 dias",
+    "pricing.basic.title": "Mate Pulse",
+    "pricing.professional.title": "Mate Core",
+    "pricing.enterprise.title": "Mate Nova",
+    "pricing.week": "/semana",
+    "pricing.twoWeeks": "/15 dias",
     "pricing.month": "/mês",
-    "pricing.select": "Selecionar",
-    "pricing.popular": "MAIS POPULAR",
-    "pricing.cpuCores": "núcleos de CPU",
-    
-    // Especificações
-    "specs.title": "Especificações",
-    "specs.cpu": "INTEL XEON 16 VCPUS",
-    "specs.ram": "16GB RAM",
-    "specs.location": "SERVIDOR BRASILEIRO",
-    "specs.storage": "350GB SSD PERMANENTE",
-    "specs.gpu.gtx1060": "GPU EQUIVALENTE GTX 1060",
-    "specs.gpu.rtx2060": "GPU EQUIVALENTE RTX 2060",
-    "specs.gpu.rtx2060s": "GPU EQUIVALENTE RTX 2060 SUPER",
-    "specs.gpu.rtx2060ti": "GPU EQUIVALENTE RTX 2060 TI",
-    "specs.network": "100MBps DOWNLOAD",
-    "specs.resolution": "RESOLUÇÃO: ATÉ 4K",
-    
-    // Sistema Operacional
-    "os.windows11": "Windows 11",
-    
-    // Títulos de seção
-    "sectionTitle.plans": "Planos sem Spot",
-    "sectionTitle.plansDesc": "Estes são exemplos de planos sem spot. Você pode alterar os nomes e recursos depois.",
-    "sectionTitle.spotPlans": "Planos com Spot",
+    "pricing.select": "Selecionar Plano",
+    "pricing.popular": "POPULAR",
+    "pricing.cpuCores": "núcleos CPU",
+
+    // Como funciona
+    "how.title": "Como Funciona",
+    "how.subtitle": "Comece em minutos",
+    "how.description": "Configurar seu PC na nuvem é rápido e simples.",
+    "how.step1.title": "Escolha seu plano",
     "how.step1.description": "Selecione o plano que melhor se adapta às suas necessidades de desempenho.",
     "how.step2.title": "Configure seu PC",
     "how.step2.description": "Personalize seu sistema operacional e aplicativos de acordo com suas preferências.",

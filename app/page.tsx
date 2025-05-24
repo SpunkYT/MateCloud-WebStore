@@ -141,93 +141,251 @@ export default function Home() {
         </section>
 
         <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-mate-50">
-          <div className="container px-4 md:px-6">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="flex flex-col items-center justify-center space-y-4 text-center"
-            >
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-mate-100 px-3 py-1 text-sm text-mate-700">
-                  {t("pricing.title")}
+  <div className="container px-4 md:px-6">
+    <motion.div
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      variants={fadeIn}
+      className="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <div className="space-y-2">
+        <div className="inline-block rounded-lg bg-mate-100 px-3 py-1 text-sm text-mate-700">
+          Planos sin Spot
+        </div>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-mate-900">
+          Elige tu plan sin spot
+        </h2>
+        <p className="max-w-[900px] text-mate-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          Estos son ejemplos de planes sin spot. Puedes cambiar los nombres y características después.
+        </p>
+      </div>
+    </motion.div>
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
+      {[
+        {
+          title: "Basic",
+          price: 180.0,
+          period: "/Mes",
+          features: [
+            {
+              section: "Especificaciones",
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows 11"]
+            }
+          ],
+          popular: true,
+        },
+        {
+          title: "Ultra 7",
+          price: 109.90,
+          period: "/7 días",
+          features: [
+            {
+              section: "Especificaciones",
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows 11"]
+            }
+          ],
+          popular: false,
+        },
+        {
+          title: "Ultra",
+          price: 309.90,
+          period: "/Mes",
+          features: [
+            {
+              section: "Especificaciones",
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows 11"]
+            }
+          ],
+          popular: false,
+        },
+      ].map((plan, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className={`flex flex-col rounded-lg border ${
+            plan.popular ? "border-mate-400" : "border-mate-200"
+          } bg-white shadow-sm ${plan.popular ? "shadow-mate" : ""} relative`}
+        >
+          {plan.popular && (
+            <div className="absolute top-0 right-0 bg-mate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+              Más popular
+            </div>
+          )}
+          <div className="p-6">
+            <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
+            <div className="mt-4 text-center">
+              <PriceDisplay amount={plan.price} className="text-4xl font-bold text-mate-900" />
+              <span className="text-sm text-mate-600">{plan.period}</span>
+            </div>
+            <div className="mt-6 space-y-6">
+              {plan.features.map((section: { section: string; items: string[] }, sectionIndex: number) => (
+                <div key={sectionIndex} className="space-y-3">
+                  <h4 className="font-medium text-mate-700">{section.section}</h4>
+                  <ul className="space-y-2">
+                    {section.items.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex} className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-mate-600 flex-shrink-0" />
+                        <span className="text-mate-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-mate-900">
-                  {t("pricing.subtitle")}
-                </h2>
-                <p className="max-w-[900px] text-mate-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t("pricing.description")}
-                </p>
-              </div>
-            </motion.div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
-              {[
-                {
-                  title: t("pricing.basic.title"),
-                  price: basePrices.pulse,
-                  period: t("pricing.week"),
-                  features: [`2 ${t("pricing.cpuCores")}`, "4GB RAM", "128GB SSD", "Windows 11"],
-                  popular: false,
-                },
-                {
-                  title: t("pricing.professional.title"),
-                  price: basePrices.core,
-                  period: t("pricing.twoWeeks"),
-                  features: [`4 ${t("pricing.cpuCores")}`, "8GB RAM", "256GB SSD", "Windows 11 Pro"],
-                  popular: true,
-                },
-                {
-                  title: t("pricing.enterprise.title"),
-                  price: basePrices.nova,
-                  period: t("pricing.month"),
-                  features: [`8 ${t("pricing.cpuCores")}`, "16GB RAM", "512GB SSD", "Windows 11 Pro"],
-                  popular: false,
-                },
-              ].map((plan, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex flex-col rounded-lg border ${
-                    plan.popular ? "border-mate-400" : "border-mate-200"
-                  } bg-white shadow-sm ${plan.popular ? "shadow-mate" : ""} relative`}
-                >
-                  {plan.popular && (
-                    <div className="absolute top-0 right-0 bg-mate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                      {t("pricing.popular")}
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
-                    <div className="mt-4 text-center">
-                      <PriceDisplay amount={plan.price} className="text-4xl font-bold text-mate-900" />
-                      <span className="text-sm text-mate-600">{plan.period}</span>
-                    </div>
-                    <ul className="mt-6 space-y-3">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center">
-                          <CheckCircle className="mr-2 h-4 w-4 text-mate-600" />
-                          <span className="text-mate-800">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex flex-col p-6 pt-0">
-                    <Button
-                      className={`${
-                        plan.popular
-                          ? "bg-mate-600 hover:bg-mate-700 text-white"
-                          : "bg-white text-mate-600 border border-mate-600 hover:bg-mate-50"
-                      }`}
-                    >
-                      {t("pricing.select")}
-                    </Button>
-                  </div>
-                </motion.div>
               ))}
+            </div>
+          </div>
+          <div className="mt-auto p-6 pt-0">
+            <Button
+              className={`w-full ${plan.popular ? "bg-mate-600 hover:bg-mate-700 text-white" : "bg-white text-mate-600 border border-mate-600 hover:bg-mate-50"}`}
+            >
+              Seleccionar
+            </Button>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Aquí termina la sección de sin spot. */}
+
+    <motion.div
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      variants={fadeIn}
+      className="flex flex-col items-center justify-center space-y-4 text-center mt-16"
+    >
+      <div className="space-y-2">
+        <div className="inline-block rounded-lg bg-mate-100 px-3 py-1 text-sm text-mate-700">
+          Planos con Spot
+        </div>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-mate-900">
+          {t("pricing.subtitle")}
+        </h2>
+        <p className="max-w-[900px] text-mate-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          {t("pricing.description")}
+        </p>
+      </div>
+    </motion.div>
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
+      {[
+        {
+          title: t("pricing.basic.title"),
+          price: basePrices.pulse,
+          period: t("pricing.week"),
+          features: [
+            {
+              section: "Especificaciones Estándar",
+              items: [`1 ${t("pricing.cpuCores")}`, "2GB RAM", "64GB SSD"]
+            },
+            {
+              section: "Especificaciones Mejoradas",
+              items: [`2 ${t("pricing.cpuCores")}`, "4GB RAM", "128GB SSD"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows 11"]
+            }
+          ],
+          popular: false,
+        },
+        {
+          title: t("pricing.standard.title"),
+          price: basePrices.core,
+          period: t("pricing.fortnight"),
+          features: [
+            {
+              section: "Especificaciones",
+              items: [`4 ${t("pricing.cpuCores")}`, "8GB RAM", "256GB SSD"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows 11 Pro"]
+            }
+          ],
+          popular: true,
+        },
+        {
+          title: t("pricing.premium.title"),
+          price: basePrices.nova,
+          period: t("pricing.month"),
+          features: [
+            {
+              section: "Especificaciones",
+              items: [`8 ${t("pricing.cpuCores")}`, "16GB RAM", "512GB SSD + 1TB HDD"]
+            },
+            {
+              section: "Sistema Operativo",
+              items: ["Windows Server 2022"]
+            }
+          ],
+          popular: false,
+        },
+      ].map((plan, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className={`flex flex-col rounded-lg border ${
+            plan.popular ? "border-mate-400" : "border-mate-200"
+          } bg-white shadow-sm ${plan.popular ? "shadow-mate" : ""} relative`}
+        >
+          {plan.popular && (
+            <div className="absolute top-0 right-0 bg-mate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+              {t("pricing.popular")}
+            </div>
+          )}
+          <div className="p-6">
+            <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
+            <div className="mt-4 text-center">
+              <PriceDisplay amount={plan.price} className="text-4xl font-bold text-mate-900" />
+              <span className="text-sm text-mate-600">{plan.period}</span>
+            </div>
+            <div className="mt-6 space-y-6">
+              {plan.features.map((section: { section: string; items: string[] }, sectionIndex: number) => (
+                <div key={sectionIndex} className="space-y-3">
+                  <h4 className="font-medium text-mate-700">{section.section}</h4>
+                  <ul className="space-y-2">
+                    {section.items.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex} className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-mate-600 flex-shrink-0" />
+                        <span className="text-mate-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col p-6 pt-0">
+            <Button
+              className={`${
+                plan.popular
+                  ? "bg-mate-600 hover:bg-mate-700 text-white"
+                  : "bg-white text-mate-600 border border-mate-600 hover:bg-mate-50"
+              }`}
+            >
+              {t("pricing.select")}
+            </Button>
+          </div>
+        </motion.div>
+      ))}
             </div>
           </div>
         </section>
