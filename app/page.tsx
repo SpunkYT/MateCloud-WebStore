@@ -161,7 +161,7 @@ export default function Home() {
         </p>
       </div>
     </motion.div>
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-3">
       {[
         {
           title: "Basic",
@@ -170,7 +170,7 @@ export default function Home() {
           features: [
             {
               section: "Especificaciones",
-              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "100MBps DOWNLOAD", "RESOLUÇÃO: ATÉ 4K"]
             },
             {
               section: "Sistema Operativo",
@@ -186,7 +186,7 @@ export default function Home() {
           features: [
             {
               section: "Especificaciones",
-              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", "RESOLUÇÃO: ATÉ 4K"]
             },
             {
               section: "Sistema Operativo",
@@ -202,7 +202,7 @@ export default function Home() {
           features: [
             {
               section: "Especificaciones",
-              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
+              items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", "RESOLUÇÃO: ATÉ 4K"]
             },
             {
               section: "Sistema Operativo",
@@ -218,22 +218,29 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className={`flex flex-col rounded-lg border ${
-            plan.popular ? "border-mate-400" : "border-mate-200"
-          } bg-white shadow-sm ${plan.popular ? "shadow-mate" : ""} relative`}
+          className={`flex flex-col h-full rounded-xl border-2 transition-all duration-300 hover:shadow-lg ${
+            plan.popular 
+              ? "border-mate-500 ring-2 ring-mate-200 ring-opacity-50" 
+              : "border-mate-200 hover:border-mate-300"
+          } bg-white ${plan.popular ? "shadow-mate" : "shadow-sm"} relative overflow-hidden`}
         >
           {plan.popular && (
-            <div className="absolute top-0 right-0 bg-mate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            <div className="absolute top-0 right-0 bg-gradient-to-r from-mate-600 to-mate-700 text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg z-10">
               Más popular
             </div>
           )}
-          <div className="p-6">
-            <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
-            <div className="mt-4 text-center">
-              <PriceDisplay amount={plan.price} className="text-4xl font-bold text-mate-900" />
-              <span className="text-sm text-mate-600">{plan.period}</span>
+          <div className="p-6 flex-1 flex flex-col">
+            <div className="mb-2">
+              <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
             </div>
-            <div className="mt-6 space-y-6">
+            <div className="my-4 text-center bg-mate-50 rounded-lg py-4">
+              <PriceDisplay 
+                amount={plan.price} 
+                className="text-4xl font-bold bg-gradient-to-r from-mate-700 to-mate-900 bg-clip-text text-transparent" 
+              />
+              <span className="text-sm font-medium text-mate-600">{plan.period}</span>
+            </div>
+            <div className="space-y-6 mt-2">
               {plan.features.map((section: { section: string; items: string[] }, sectionIndex: number) => (
                 <div key={sectionIndex} className="space-y-3">
                   <h4 className="font-medium text-mate-700">{section.section}</h4>
@@ -249,9 +256,14 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="mt-auto p-6 pt-0">
+          <div className="p-6 pt-0 mt-auto">
+            <div className="h-px bg-gradient-to-r from-transparent via-mate-200 to-transparent my-4"></div>
             <Button
-              className={`w-full ${plan.popular ? "bg-mate-600 hover:bg-mate-700 text-white" : "bg-white text-mate-600 border border-mate-600 hover:bg-mate-50"}`}
+              className={`w-full py-2.5 text-base font-semibold transition-all duration-200 ${
+                plan.popular
+                  ? "bg-gradient-to-r from-mate-600 to-mate-700 hover:from-mate-700 hover:to-mate-800 text-white shadow-md hover:shadow-lg"
+                  : "bg-white text-mate-700 border-2 border-mate-200 hover:border-mate-300 hover:bg-mate-50"
+              } rounded-lg`}
             >
               Seleccionar
             </Button>
@@ -281,11 +293,11 @@ export default function Home() {
         </p>
       </div>
     </motion.div>
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-3">
       {[
         {
-          title: t("pricing.basic.title"),
-          price: basePrices.pulse,
+          title: "Mate Pulse",
+          price: 79.97,
           period: t("pricing.week"),
           features: [
             {
@@ -304,9 +316,9 @@ export default function Home() {
           popular: false,
         },
         {
-          title: t("pricing.standard.title"),
-          price: basePrices.core,
-          period: t("pricing.fortnight"),
+          title: "Mate Core",
+          price: 99.97,
+          period: "/15 días",
           features: [
             {
               section: "Especificaciones",
@@ -320,9 +332,9 @@ export default function Home() {
           popular: true,
         },
         {
-          title: t("pricing.premium.title"),
-          price: basePrices.nova,
-          period: t("pricing.month"),
+          title: "Mate Nova",
+          price: 139.97,
+          period: "/Mes",
           features: [
             {
               section: "Especificaciones",
@@ -342,22 +354,29 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className={`flex flex-col rounded-lg border ${
-            plan.popular ? "border-mate-400" : "border-mate-200"
-          } bg-white shadow-sm ${plan.popular ? "shadow-mate" : ""} relative`}
+          className={`flex flex-col h-full rounded-xl border-2 transition-all duration-300 hover:shadow-lg ${
+            plan.popular 
+              ? "border-mate-500 ring-2 ring-mate-200 ring-opacity-50" 
+              : "border-mate-200 hover:border-mate-300"
+          } bg-white ${plan.popular ? "shadow-mate" : "shadow-sm"} relative overflow-hidden`}
         >
           {plan.popular && (
-            <div className="absolute top-0 right-0 bg-mate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            <div className="absolute top-0 right-0 bg-gradient-to-r from-mate-600 to-mate-700 text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg z-10">
               {t("pricing.popular")}
             </div>
           )}
-          <div className="p-6">
-            <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
-            <div className="mt-4 text-center">
-              <PriceDisplay amount={plan.price} className="text-4xl font-bold text-mate-900" />
-              <span className="text-sm text-mate-600">{plan.period}</span>
+          <div className="p-6 flex-1 flex flex-col">
+            <div className="mb-2">
+              <h3 className="text-2xl font-bold text-mate-900">{plan.title}</h3>
             </div>
-            <div className="mt-6 space-y-6">
+            <div className="my-4 text-center bg-mate-50 rounded-lg py-4">
+              <PriceDisplay 
+                amount={plan.price} 
+                className="text-4xl font-bold bg-gradient-to-r from-mate-700 to-mate-900 bg-clip-text text-transparent" 
+              />
+              <span className="text-sm font-medium text-mate-600">{plan.period}</span>
+            </div>
+            <div className="space-y-6 mt-2">
               {plan.features.map((section: { section: string; items: string[] }, sectionIndex: number) => (
                 <div key={sectionIndex} className="space-y-3">
                   <h4 className="font-medium text-mate-700">{section.section}</h4>
@@ -373,13 +392,14 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col p-6 pt-0">
+          <div className="p-6 pt-0 mt-auto">
+            <div className="h-px bg-gradient-to-r from-transparent via-mate-200 to-transparent my-4"></div>
             <Button
-              className={`${
+              className={`w-full py-2.5 text-base font-semibold transition-all duration-200 ${
                 plan.popular
-                  ? "bg-mate-600 hover:bg-mate-700 text-white"
-                  : "bg-white text-mate-600 border border-mate-600 hover:bg-mate-50"
-              }`}
+                  ? "bg-gradient-to-r from-mate-600 to-mate-700 hover:from-mate-700 hover:to-mate-800 text-white shadow-md hover:shadow-lg"
+                  : "bg-white text-mate-700 border-2 border-mate-200 hover:border-mate-300 hover:bg-mate-50"
+              } rounded-lg`}
             >
               {t("pricing.select")}
             </Button>
