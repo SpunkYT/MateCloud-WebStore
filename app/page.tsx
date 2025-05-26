@@ -185,7 +185,7 @@ export default function Home() {
           period: "/7 días",
           features: [
             {
-              section: "Especificaciones",
+              section: "Especificaciones gay",
               items: ["INTEL XEON 16 VCPUS", "16GB RAM", "SERVIDOR BRASILEIRO", "350GB SSD PERMANENTE", "GPU EQUIVALENTE GTX 1060", "GPU EQUIVALENTE RTX 2060", "GPU EQUIVALENTE RTX 2060 SUPER", "GPU EQUIVALENTE RTX 2060 TI", "100MBps DOWNLOAD", " RESOLUÇÃO: ATÉ 4K"]
             },
             {
