@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { CheckCircle, Cpu, Globe, HardDrive, Laptop, Server } from "lucide-react"
+import { CheckCircle, Cpu, Globe, HardDrive, Laptop, Server, Monitor, LayoutGrid } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/language-context"
 import { useCurrency } from "@/contexts/currency-context"
