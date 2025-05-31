@@ -20,7 +20,8 @@ const MOCK_USERS = [
 export async function GET() {
   try {
     // Obtener sesión de la cookie
-    const sessionCookie = cookies().get("session")
+    const cookieStore = await cookies()
+    const sessionCookie = cookieStore.get("session")
 
     if (!sessionCookie) {
       return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
@@ -30,8 +31,9 @@ export async function GET() {
 
     // Verificar si la sesión ha expirado
     if (new Date(session.expires) < new Date()) {
-      cookies().delete("session")
-      return NextResponse.json({ message: "Session expired" }, { status: 401 })
+      const response = NextResponse.json({ message: "Session expired" }, { status: 401 })
+      response.cookies.delete("session")
+      return response
     }
 
     // Buscar usuario por ID
